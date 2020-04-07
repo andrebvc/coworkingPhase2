@@ -1,0 +1,32 @@
+{
+  "users": [
+    {
+      "User": "Andre",
+      "userEmail": "dk_abib@hotmail.com",
+      "phoneNumber": "1231231234",
+      "userPassword": "dkabib",
+      "userType": "Owner"
+    },
+    {
+      "User": "Caroline",
+      "userEmail": "carol@gmail.com",
+      "phoneNumber": "5556661111",
+      "userPassword": "caroline",
+      "userType": "User"
+    },
+    {
+      "User": "Phillip",
+      "userEmail": "phillip123@myemail.com",
+      "phoneNumber": "9876541234",
+      "userPassword": "phillipo123",
+      "userType": "User"
+    },
+    {
+      "User": "Peter",
+      "userEmail": "peter@owner.com",
+      "phoneNumber": "0123456789",
+      "userPassword": "peterowner",
+      "userType": "Owner"
+    }
+  ]
+}

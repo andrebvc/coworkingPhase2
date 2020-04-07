@@ -1,0 +1,98 @@
+<!--
+*@name: Coworking Web App Phase 2
+*@Course Code:SODV1201
+*@class: Software Development Diploma Program.
+*@author: Andre Albuquerque.*/
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Co-Working App!</title>
+    <link rel="stylesheet" type="text/css" href="index.css"></link>
+</head>
+
+<body>
+    
+    <div class="topBox">
+        <p class="title" id="test">Co-Working App For You!</p>
+        <br>
+        
+    </div>
+        <div id="wrapperindex4">
+        <div id="form">
+            <form action = "Manage.html" method = "POST">
+            <lable>User</lable><br><input class="inputBoxes" id="address" type="text" placeholder="Your Username" name="username"></input><br>
+            <lable>Password</lable><br><input class="inputBoxes" id="passwordBox" type="password" placeholder="Password" name="password"></input><br>
+            <input type="checkbox" onclick="showPassword()">Show Password<br><br>
+            <lable><b>Add Property</b></lable><br><input class="inputBoxes" id="propertyname" type="text" placeholder="Property Name" name="propertyname"></input><br>
+                        
+            <lable>Address</lable><br><input class="inputBoxes" id="address" type="text" placeholder="Address" name="address"></input><br>
+            <lable>Neighborhood</lable><br><input class="inputBoxes" id="neighborhood" type="text" placeholder="Neighborhood" name="neighborhood"></input><br>
+            <lable>Squarefeet</lable><br><input class="inputBoxes" id="squarefeet" type="text" placeholder="Squarefeet" name="squarefeet"></input><br>
+            <lable>Has Garage Parking</lable>
+            <select id="hasgarage" name="garage">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select><br>
+            <lable>Access to Public Transport</lable>
+            <select id="publictransport" name="transport">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select><br>
+            
+            <button type="submit" value="Submit">Add Property</button>
+        </form>
+        </div>
+
+      
+        <nav class="vertical">
+            <ul>
+                <li>
+                        <a href="index.html">Home</a></li>
+                <li>
+                        <a href="Users.html">Sign Up</a></li>
+                <li>
+                        <a href="OwnersDetails.html" id="logout">Owners Details</a></li>
+                <li>
+                        <a href="ListProperties.html">Properties Available</a></li>
+                <li>
+                        <a href="Manage.html">Add Properties</a></li>
+                <li>
+                        <a href="ManageProperties.html">Manage Properties</a></li>
+                <li>
+                        <a href="Workspaces.html">Add Workspaces</a></li>
+                <li>
+                        <a href="ManageWorkspaces.html">Manage Workspaces</a></li>
+            </ul>
+        </nav>
+    </div>
+        <!-- Footer -->
+    
+          <footer>
+            <p id="footerparagraph">
+              Text
+            </p>
+        </footer>
+        
+        
+        <script>
+
+            function showPassword() {
+
+            var temp = document.getElementById("passwordBox");
+
+            if (temp.type === "password") {
+            temp.type = "text";
+            } else {
+            temp.type = "password";
+            }
+            }
+
+        </script>
+
+
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!--
+*@name: Coworking Web App Phase 2
+*@Course Code:SODV1201
+*@class: Software Development Diploma Program.
+*@author: Andre Albuquerque.*/
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Co-Working App!</title>
+    <link rel="stylesheet" type="text/css" href="index.css"></link>
+</head>
+
+<body>
+    
+    <div class="topBox">
+        <p class="title" id="test">Co-Working App For You!</p>
+        <br>
+        
+    </div>
+    <div id="form">
+        <form action = "http://localhost:3000/Users.html" method = "POST">
+        <lable>Username</lable><br><input class="inputBoxes" id="userNameBox" type="text" placeholder="Username" name="username"></input><br>
+        <lable>E-mail</lable><br><input class="inputBoxes" id="emailBox" type="text" placeholder="E-mail" name="email"></input><br>
+        <lable>Phone</lable><br><input class="inputBoxes" id="phoneBox" type="text" placeholder="Phone" name="phone"></input><br>
+        <lable>Password</lable><br><input class="inputBoxes" id="passwordBox" type="password" placeholder="Password" name="password"></input><br>
+        <input type="checkbox" onclick="showPassword()">Show Password<br><br>
+        <lable>Register as:</lable><br><br>
+        <select id="ownerorcoworker" name="register">
+            <option value="0">Coworker</option>
+            <option value="1">Owner</option>
+        </select><br>
+        <button type="submit" value="Submit">Sign Up</button>
+    </form>
+    </div>
+
+
+    <nav class="vertical">
+        <ul>
+            <li>
+                    <a href="index.html">Home</a></li>
+            <li>
+                    <a href="Users.html">Sign Up</a></li>
+            <li>
+                    <a href="OwnersDetails.html" id="logout">Owners Details</a></li>
+            <li>
+                    <a href="ListProperties.html">Properties Available</a></li>
+            <li>
+                    <a href="Manage.html">Add Properties</a></li>
+            <li>
+                    <a href="ManageProperties.html">Manage Properties</a></li>
+            <li>
+                    <a href="Workspaces.html">Add Workspaces</a></li>
+            <li>
+                    <a href="ManageWorkspaces.html">Manage Workspaces</a></li>
+        </ul>
+    </nav>
+            
+            
+
+        <!-- Footer -->
+    
+          <footer>
+            <p id="footerparagraph">
+              Text
+            </p>
+        </footer>
+
+        <script>
+
+            function showPassword() {
+
+            var temp = document.getElementById("passwordBox");
+
+            if (temp.type === "password") {
+            temp.type = "text";
+            } else {
+            temp.type = "password";
+            }
+            }
+
+        </script>
+
+</body>
+</html>
+

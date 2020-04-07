@@ -1,0 +1,108 @@
+{
+  "properties": [
+    {
+      "user": "Andre",
+      "property": "Miramar",
+      "propaddress": "78 My Way",
+      "propneighborhood": "The Shire",
+      "area": "780",
+      "hasgarage": "Yes",
+      "publictransport": "Yes",
+      "workspaces": [
+        {
+          "id": 1,
+          "owner": "Andre",
+          "property": "Miramar",
+          "meetingrooms": "3",
+          "meetingroomsseats": "15",
+          "privaterooms": "4",
+          "privateroomsseats": "8",
+          "opendesks": "6",
+          "opendesksseats": "6",
+          "smoking": "Yes",
+          "date": "2020-04-23",
+          "leaseterm": "weekly",
+          "price": "1200"
+        }
+      ]
+    },
+    {
+      "user": "Andre",
+      "property": "Calgary Downtown",
+      "propaddress": "1100 6th Ave SW",
+      "propneighborhood": "Downtown",
+      "area": "1800",
+      "hasgarage": "Yes",
+      "publictransport": "Yes",
+      "workspaces": [
+        {
+          "id": 1,
+          "owner": "Andre",
+          "property": "Calgary Downtown",
+          "meetingrooms": "1",
+          "meetingroomsseats": "10",
+          "privaterooms": "2",
+          "privateroomsseats": "6",
+          "opendesks": "3",
+          "opendesksseats": "3",
+          "smoking": "Yes",
+          "date": "2020-04-15",
+          "leaseterm": "daily",
+          "price": "250"
+        }
+      ]
+    },
+    {
+      "user": "Peter",
+      "property": "Peter Offices",
+      "propaddress": "900 Peter Way",
+      "propneighborhood": "High Heights",
+      "area": "4200",
+      "hasgarage": "Yes",
+      "publictransport": "No",
+      "workspaces": [
+        {
+          "id": 1,
+          "owner": "Peter",
+          "property": "Peter Offices",
+          "meetingrooms": "6",
+          "meetingroomsseats": "40",
+          "privaterooms": "12",
+          "privateroomsseats": "24",
+          "opendesks": "20",
+          "opendesksseats": "20",
+          "smoking": "No",
+          "date": "2020-05-01",
+          "leaseterm": "monthly",
+          "price": "6000"
+        }
+      ]
+    },
+    {
+      "user": "Peter",
+      "property": "Bonanza",
+      "propaddress": "900 Highmountain Drive",
+      "propneighborhood": "Altdorf",
+      "area": "2250",
+      "hasgarage": "No",
+      "publictransport": "Yes",
+      "workspaces": [
+        {
+          "id": 1,
+          "owner": "Peter",
+          "property": "Bonanza",
+          "meetingrooms": "3",
+          "meetingroomsseats": "12",
+          "privaterooms": "5",
+          "privateroomsseats": "8",
+          "opendesks": "8",
+          "opendesksseats": "8",
+          "smoking": "No",
+          "date": "2020-06-01",
+          "leaseterm": "monthly",
+          "price": "3500"
+        }
+      ]
+    }
+  ]
+}

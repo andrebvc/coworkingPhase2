@@ -1,0 +1,174 @@
+<!--
+*@name: Coworking Web App Phase 2
+*@Course Code:SODV1201
+*@class: Software Development Diploma Program.
+*@author: Andre Albuquerque.*/
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Co-Working App!</title>
+    <link rel="stylesheet" type="text/css" href="index.css"></link>
+</head>
+
+<body>
+    
+    <div class="topBox">
+        <p class="title" id="test">Co-Working App For You!</p>
+        <br>
+        
+    </div>
+    <div id="form">
+
+        <p><b>Properties listed by Squarefeet:</b></p>
+        <p><u>Less than 1000 Squarefeet:</u></p>
+        <p id="square1"></p>
+        <p><u>From 1000 to 3000 Squarefeet:</u></p>
+        <p id="square2"></p>
+        <p><u>Over 3000 Squarefeet:</u></p>
+        <p id="square3"></p>
+        <p><b>Workspaces listed by Lease Term:</b></p>
+        <p><u>Daily Terms:</u></p>
+        <p id="leaseterm1"></p>
+        <p><u>Weekly Terms:</u></p>
+        <p id="leaseterm2"></p>
+        <p><u>Monthly Terms:</u></p>
+        <p id="leaseterm3"></p>
+        <p><b>Workspaces listed by Price:</b></p>
+        <p><u>Less than 1,000:</u></p>
+        <p id="price1"></p>
+        <p><u>From 1,000 to 5,000:</u></p>
+        <p id="price2"></p>
+        <p><u>Over 5,000:</u></p>
+        <p id="price3"></p>
+    
+    </div>
+
+    <nav class="vertical">
+        <ul>
+            <li>
+                    <a href="index.html">Home</a></li>
+            <li>
+                    <a href="Users.html">Sign Up</a></li>
+            <li>
+                    <a href="OwnersDetails.html" id="logout">Owners Details</a></li>
+            <li>
+                    <a href="ListProperties.html">Properties Available</a></li>
+            <li>
+                    <a href="Manage.html">Add Properties</a></li>
+            <li>
+                    <a href="ManageProperties.html">Manage Properties</a></li>
+            <li>
+                    <a href="Workspaces.html">Add Workspaces</a></li>
+            <li>
+                    <a href="ManageWorkspaces.html">Manage Workspaces</a></li>
+        </ul>
+    </nav>
+            
+        <!-- Footer -->
+    
+          <footer>
+            <p id="footerparagraph">
+              Text
+            </p>
+        </footer>
+
+        <script>
+
+            // Load the JSON file to update the html elements with the correct information.
+            function loadJSON(callback) {   
+    
+                var xobj = new XMLHttpRequest();
+                    
+                xobj.open('GET', 'properties.json', true);
+                xobj.onreadystatechange = function () {
+                    if (xobj.readyState == 4 && xobj.status == "200") {
+                        
+                        callback(xobj.responseText);
+                    }
+                };
+                xobj.send(null);  
+            }
+    
+            function init() {
+            loadJSON(function(response) {
+            // Parse JSON string into object
+                var propertiesJSON = JSON.parse(response);
+                
+                var x = propertiesJSON.properties.length - 1;
+                console.log(x);
+                console.log(propertiesJSON);
+                console.log(propertiesJSON.properties[x]);
+
+                // Traverse the properties object
+                for (var i = 0; i <= x; i++){
+                    var tempName = propertiesJSON.properties[i].property;
+                    var tempOwner = propertiesJSON.properties[i].user;
+                    var tempAddress = propertiesJSON.properties[i].propaddress;
+                    var tempArea = propertiesJSON.properties[i].area;
+                    var tempNeighborhood = propertiesJSON.properties[i].propneighborhood;
+                    var tempGarage = propertiesJSON.properties[i].hasgarage;
+                    // if (propertiesJSON.properties[i].publictransport == "Yes"){
+                    //     var tempTransport = "Yes";
+                    // }
+                    // else var tempTransport = "No";
+                    
+                    if(tempArea < 1000 && tempName != "deleted"){
+                    document.getElementById("square1").innerHTML += "Property: " + tempName + "<br>Owner: " + tempOwner + "<br>Address: " + tempAddress + "<br>Area: " + tempArea + "<br>Neighborhood: " + tempNeighborhood + "<br>Has Garage: " + tempGarage + "<br>Accessible via Public Transport: " + propertiesJSON.properties[i].publictransport + "<br><br>";
+                    }
+                    else if(tempArea >= 1000 && tempArea <= 3000 && tempName != "deleted"){
+                    document.getElementById("square2").innerHTML += "Property: " + tempName + "<br>Owner: " + tempOwner + "<br>Address: " + tempAddress + "<br>Area: " + tempArea + "<br>Neighborhood: " + tempNeighborhood + "<br>Has Garage: " + tempGarage + "<br>Accessible via Public Transport: " + propertiesJSON.properties[i].publictransport + "<br><br>";
+                    }
+                    else if(tempName != "deleted"){
+                    document.getElementById("square3").innerHTML += "Property: " + tempName + "<br>Owner: " + tempOwner + "<br>Address: " + tempAddress + "<br>Area: " + tempArea + "<br>Neighborhood: " + tempNeighborhood + "<br>Has Garage: " + tempGarage + "<br>Accessible via Public Transport: " + propertiesJSON.properties[i].publictransport + "<br><br>";
+                    }
+
+                    for (var j = 0; j <= propertiesJSON.properties[i].workspaces.length-1; j++){
+
+                        var tempWSID = propertiesJSON.properties[i].workspaces[j].id;
+                        var tempWSOwner = propertiesJSON.properties[i].workspaces[j].owner;
+                        var tempWSName = propertiesJSON.properties[i].workspaces[j].property;
+                        var tempWSMeetingRooms = propertiesJSON.properties[i].workspaces[j].meetingrooms;
+                        var tempWSMeetingRoomsSeats = propertiesJSON.properties[i].workspaces[j].meetingroomsseats;
+                        var tempWSPrivateRooms = propertiesJSON.properties[i].workspaces[j].privaterooms;
+                        var tempWSPrivateRoomsSeats = propertiesJSON.properties[i].workspaces[j].privateroomsseats;
+                        var tempWSOpenDesks = propertiesJSON.properties[i].workspaces[j].opendesks;
+                        var tempWSOpenDesksSeats = propertiesJSON.properties[i].workspaces[j].opendesksseats;
+                        var tempWSDate = propertiesJSON.properties[i].workspaces[j].date;
+                        var tempWSLeaseTerm = propertiesJSON.properties[i].workspaces[j].leaseterm;
+                        var tempWSPrice = propertiesJSON.properties[i].workspaces[j].price;
+
+                        if (tempWSName != "deleted" && tempName != "deleted" && tempWSLeaseTerm == "daily"){
+                            document.getElementById("leaseterm1").innerHTML += "Property: " + tempWSName + "<br>Owner: " + tempWSOwner + "<br>Available from: " + tempWSDate + "<br>Lease Term: " + tempWSLeaseTerm + "<br>Pricing: " + tempWSPrice + "<br>Number of Meeting Rooms: " + tempWSMeetingRooms + "<br>Seats in Meeting Rooms: " + tempWSMeetingRoomsSeats + "<br>Number of Private Rooms: " + tempWSPrivateRooms + "<br>Seats in Private Offices: " + tempWSMeetingRoomsSeats + "<br>Number of Open Desks: " + tempWSOpenDesks + "<br>Seats in Open Desks: " + tempWSOpenDesksSeats + "<br><br>";
+                        }
+                        else if (tempWSName != "deleted" && tempName != "deleted" && tempWSLeaseTerm == "weekly"){
+                            document.getElementById("leaseterm2").innerHTML += "Property: " + tempWSName + "<br>Owner: " + tempWSOwner + "<br>Available from: " + tempWSDate + "<br>Lease Term: " + tempWSLeaseTerm + "<br>Pricing: " + tempWSPrice + "<br>Number of Meeting Rooms: " + tempWSMeetingRooms + "<br>Seats in Meeting Rooms: " + tempWSMeetingRoomsSeats + "<br>Number of Private Rooms: " + tempWSPrivateRooms + "<br>Seats in Private Offices: " + tempWSMeetingRoomsSeats + "<br>Number of Open Desks: " + tempWSOpenDesks + "<br>Seats in Open Desks: " + tempWSOpenDesksSeats + "<br><br>";
+                        }
+                        else if (tempWSName != "deleted" && tempName != "deleted" && tempWSLeaseTerm == "monthly"){
+                            document.getElementById("leaseterm3").innerHTML += "Property: " + tempWSName + "<br>Owner: " + tempWSOwner + "<br>Available from: " + tempWSDate + "<br>Lease Term: " + tempWSLeaseTerm + "<br>Pricing: " + tempWSPrice + "<br>Number of Meeting Rooms: " + tempWSMeetingRooms + "<br>Seats in Meeting Rooms: " + tempWSMeetingRoomsSeats + "<br>Number of Private Rooms: " + tempWSPrivateRooms + "<br>Seats in Private Offices: " + tempWSMeetingRoomsSeats + "<br>Number of Open Desks: " + tempWSOpenDesks + "<br>Seats in Open Desks: " + tempWSOpenDesksSeats + "<br><br>";
+                        }
+
+                        if (tempWSName != "deleted" && tempName != "deleted" && tempWSPrice < 1000){
+                            document.getElementById("price1").innerHTML += "Property: " + tempWSName + "<br>Owner: " + tempWSOwner + "<br>Available from: " + tempWSDate + "<br>Lease Term: " + tempWSLeaseTerm + "<br>Pricing: " + tempWSPrice + "<br>Number of Meeting Rooms: " + tempWSMeetingRooms + "<br>Seats in Meeting Rooms: " + tempWSMeetingRoomsSeats + "<br>Number of Private Rooms: " + tempWSPrivateRooms + "<br>Seats in Private Offices: " + tempWSMeetingRoomsSeats + "<br>Number of Open Desks: " + tempWSOpenDesks + "<br>Seats in Open Desks: " + tempWSOpenDesksSeats + "<br><br>";
+                        }
+                        else if (tempWSName != "deleted" && tempName != "deleted" && tempWSPrice > 1000 && tempWSPrice < 5000){
+                            document.getElementById("price2").innerHTML += "Property: " + tempWSName + "<br>Owner: " + tempWSOwner + "<br>Available from: " + tempWSDate + "<br>Lease Term: " + tempWSLeaseTerm + "<br>Pricing: " + tempWSPrice + "<br>Number of Meeting Rooms: " + tempWSMeetingRooms + "<br>Seats in Meeting Rooms: " + tempWSMeetingRoomsSeats + "<br>Number of Private Rooms: " + tempWSPrivateRooms + "<br>Seats in Private Offices: " + tempWSMeetingRoomsSeats + "<br>Number of Open Desks: " + tempWSOpenDesks + "<br>Seats in Open Desks: " + tempWSOpenDesksSeats + "<br><br>";
+                        }
+                        else if (tempWSName != "deleted" && tempName != "deleted" && tempWSPrice > 5000){
+                            document.getElementById("price3").innerHTML += "Property: " + tempWSName + "<br>Owner: " + tempWSOwner + "<br>Available from: " + tempWSDate + "<br>Lease Term: " + tempWSLeaseTerm + "<br>Pricing: " + tempWSPrice + "<br>Number of Meeting Rooms: " + tempWSMeetingRooms + "<br>Seats in Meeting Rooms: " + tempWSMeetingRoomsSeats + "<br>Number of Private Rooms: " + tempWSPrivateRooms + "<br>Seats in Private Offices: " + tempWSMeetingRoomsSeats + "<br>Number of Open Desks: " + tempWSOpenDesks + "<br>Seats in Open Desks: " + tempWSOpenDesksSeats + "<br><br>";
+                        }    
+                    }
+                }
+            });
+            }
+            init();
+    
+    
+        </script>
+
+</body>
+</html>
+

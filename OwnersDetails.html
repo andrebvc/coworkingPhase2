@@ -1,0 +1,120 @@
+<!--
+*@name: Coworking Web App Phase 2
+*@Course Code:SODV1201
+*@class: Software Development Diploma Program.
+*@author: Andre Albuquerque.*/
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Co-Working App!</title>
+    <link rel="stylesheet" type="text/css" href="index.css"></link>
+</head>
+
+<body>
+    
+    <div class="topBox">
+        <p class="title" id="test">Co-Working App For You!</p>
+        
+        
+    </div>
+
+    <div id="logform">
+
+        <p>Current list of all Owners and their details:</p>
+
+        <p id="response"></p>
+
+    </div>
+    
+    <nav class="vertical">
+        <ul>
+            <li>
+                    <a href="index.html">Home</a></li>
+            <li>
+                    <a href="Users.html">Sign Up</a></li>
+            <li>
+                    <a href="OwnersDetails.html" id="logout">Owners Details</a></li>
+            <li>
+                    <a href="ListProperties.html">Properties Available</a></li>
+            <li>
+                    <a href="Manage.html">Add Properties</a></li>
+            <li>
+                    <a href="ManageProperties.html">Manage Properties</a></li>
+            <li>
+                    <a href="Workspaces.html">Add Workspaces</a></li>
+            <li>
+                    <a href="ManageWorkspaces.html">Manage Workspaces</a></li>
+        </ul>
+    </nav>
+            
+
+        <!-- Footer -->
+    
+          <footer>
+            <p id="footerparagraph">
+              Text
+            </p>
+        </footer>
+
+        <script>
+        
+            function showPassword2() {
+
+                var temp = document.getElementById("passwordBox2");
+
+                if (temp.type === "password") {
+                temp.type = "text";
+                } else {
+                temp.type = "password";
+                }
+            }
+            
+            // Load the JSON file
+            function loadJSON(callback) {   
+    
+                var xobj = new XMLHttpRequest();
+                    
+                xobj.open('GET', 'users.json', true);
+                xobj.onreadystatechange = function () {
+                    if (xobj.readyState == 4 && xobj.status == "200") {
+                        
+                        callback(xobj.responseText);
+                    }
+                };
+                xobj.send(null);  
+            }
+    
+            function init() {
+            loadJSON(function(response) {
+            // Parse JSON string into object
+                var usersJSON = JSON.parse(response);
+                
+                var x = usersJSON.users.length - 1;
+                console.log(x);
+                console.log(usersJSON);
+                console.log(usersJSON.users[x]);
+                
+                // Traverse the Array of users
+                for (var i = 0; i <= x; i++){
+
+                    // Get the information from the user if it is an Owner and then display it
+                    if (usersJSON.users[i].userType == "Owner"){
+                    var tempName = usersJSON.users[i].User;
+                    var tempEmail = usersJSON.users[i].userEmail;
+                    var tempTelephone = usersJSON.users[i].phoneNumber;
+                    
+                    document.getElementById("response").innerHTML += "<b>Name:</b> " + tempName + "<br><b>E-mail:</b> " + tempEmail + "<br><b>Telephone Number:</b> " + tempTelephone + "<br><br>";
+                    }
+                }
+            });
+            }
+            init();
+
+        </script>
+
+</body>
+</html>
